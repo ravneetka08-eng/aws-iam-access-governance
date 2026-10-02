@@ -1,6 +1,5 @@
 # Project Scope and Security Requirements
 
-> **Evidence status:** This document describes the project design and execution procedure. AWS deployment, access-test outcomes and cleanup have not been independently evidenced in the supplied material. Proposed controls are not represented as deployed controls.
 
 ## Business context
 

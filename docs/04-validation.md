@@ -1,6 +1,6 @@
 # Access Validation and Results
 
-> **Evidence status:** This document describes the project design and execution procedure. AWS deployment, access-test outcomes and cleanup have not been independently evidenced in the supplied material. Proposed controls are not represented as deployed controls.
+
 
 ## Methodology
 
@@ -59,3 +59,6 @@ Each executed test needs date/time/timezone, caller, policy version, target, ini
 ## Current conclusion
 
 The validation plan covers operational access, bypass attempts, lifecycle changes and audit review. No pass count or successful deployment claim can be established from the tutorial text and repository screenshot alone. Acceptance remains open until test evidence is supplied.
+
+
+![Production stop denied](../evidence/access-tests/TC-04-production-stop-denied.png)
