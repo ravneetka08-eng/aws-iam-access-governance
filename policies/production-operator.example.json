@@ -1,0 +1,54 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "SelectedInventoryReads",
+      "Effect": "Allow",
+      "Action": [
+        "ec2:DescribeInstances",
+        "ec2:DescribeInstanceStatus",
+        "ec2:DescribeTags",
+        "ec2:DescribeRegions"
+      ],
+      "Resource": "*"
+    },
+    {
+      "Sid": "ApprovedEnvironmentLifecycle",
+      "Effect": "Allow",
+      "Action": [
+        "ec2:StartInstances",
+        "ec2:StopInstances"
+      ],
+      "Resource": "arn:aws:ec2:ap-southeast-2:123456789012:instance/*",
+      "Condition": {
+        "StringEquals": {
+          "ec2:ResourceTag/Env": "production"
+        }
+      }
+    },
+    {
+      "Sid": "DenyOtherEnvironmentLifecycle",
+      "Effect": "Deny",
+      "Action": [
+        "ec2:StartInstances",
+        "ec2:StopInstances"
+      ],
+      "Resource": "arn:aws:ec2:ap-southeast-2:123456789012:instance/*",
+      "Condition": {
+        "StringEquals": {
+          "ec2:ResourceTag/Env": "development"
+        }
+      }
+    },
+    {
+      "Sid": "DenyTagChangesAndTermination",
+      "Effect": "Deny",
+      "Action": [
+        "ec2:CreateTags",
+        "ec2:DeleteTags",
+        "ec2:TerminateInstances"
+      ],
+      "Resource": "*"
+    }
+  ]
+}
